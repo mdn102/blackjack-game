@@ -12,4 +12,4 @@
 
 Refrence:
 
-Click @ https://www.pokerstarscasino.com
+Click https://www.pokerstarscasino.com
