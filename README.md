@@ -12,4 +12,4 @@
 
 Refrence:
 
-Review at https://www.pokerstarscasino.com
+More information, please review at https://www.pokerstarscasino.com/games/blackjack/
