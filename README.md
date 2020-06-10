@@ -12,4 +12,4 @@
 
 Refrence:
 
-Click [HERE] (https://www.pokerstarscasino.com)
+Review at https://www.pokerstarscasino.com
