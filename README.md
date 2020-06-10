@@ -9,5 +9,7 @@ Player will be presented with a number of decisions to make during each round of
 
 Hit: Player can request additional cards to improve their hand(s). Cards will be drawn one at a time until the total hand value is 21 or higher.
 Stand: When the total value of player’s hand is 21 or lower, and can choose to stand and not to risk the chance of thier hand(s exceeding 21 in total value.
+
 Refrence:
+
 https://www.pokerstarscasino.com
