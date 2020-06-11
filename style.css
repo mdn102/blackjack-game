@@ -31,12 +31,14 @@ h1 {
     border: solid 5px white;
     border-radius: 10px;
     height: 50px;
-    width: 200px;
+    width: 250px;
     margin-bottom: 20px;
 }
 
 .deck {
-    float:left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: white;
     color:#222;
     padding: 10px;
