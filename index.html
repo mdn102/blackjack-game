@@ -10,35 +10,80 @@
 </head>
 
 <body>
-    <div class="game">
-        <h1>BLACKJACK</h1>
-        <div class="board">
+    <div class="gameContainer">
+        <h1>BLACKJACK GAME</h1>
+        <div class="gameBoard">
 
-            <div id="deck" class="deck">
+            <div class="deck">
                 <div id="deckcount">52</div>
             </div>
-
-            <div class="status" id="status"></div>
             
+            <div class="status" id="status">Click "Start" to Play</div>
+
             <div id="players" class="players">
                 <div id="player" class="player">
-                    <h3>Player</h3>
+                    <h2>PLAYER</h2>
+                    <div id="playerHand"> </div>
+                    <div id="playerScore"></div>
                 </div>
                 <div id="dealer" class="dealer">
-                    <h3>Dealer</h3>
+                    <h2>DEALER</h2>
+                    <div id="dealerHand"> </div>
+                    <div id="dealerScore"></div>
                 </div>
             </div>
-                
+
             <div class="gameOptions">
-                <input type="button" onclick="startGame()" class="btn" id="btnStart" value="start">
-                <input type="button" onclick="check()" class="btn" value="check">
-                <input type="button" onclick="stand()" class="btn" value="stand">
+                <input type="button" class="btn" id="start" value="Start" >
+                <input type="button" class="btn" id="hit" value="Hit">
+                <input type="button" class="btn" id="stand" value="Stand">
+                <input type="button" class="btn" id="rulesBtn" value="Rules">
             </div>
 
-            <div class="clear"></div>
+            <div class="rules" id="rulesList">
+                <div class="rulesContent">
+                    <span class="close">&times;</span>
+                    <h3>CARD GAME RULES</h3>
+                    <p class="rulesList">
+                        OBJECT OF THE GAME
+                    </p>
+                    <p class="rulesList">
+                        Each participant attempts to beat the dealer by getting a count as close to 21 as possible, without going over 21.
+                    </p>
+                    <p class="rulesList">
+                        THE DEAL
+                    </p>
+                    <p class="rulesList">
+                        All the players include the dealer will receives two cards face up. Thus, all players on the table will know the score of each other. <br />
+                        The player will have chance to compete with the dealer since their turn first and they have alreday known the dealer's score. <br />
+                        The dealer will have chance to compete with the player because they've known the player score and will decide whether to continue or stop the game to compete player's score.    
+                    </p>
+                    <p class="rulesList">
+                        THE PLAYER'S TURN
+                    </p>
+                    <p class="rulesList">
+                        The player to the left goes first and must decide whether to "stand" (not ask for another card) or "hit" (ask for another card in an attempt to get closer to a count of 21, or even hit 21 exactly). <br/>
+                        If the player hit the card and go over 21 , the player will be lost immediately. Game end. 
+                    </p>
+                    <p class="rulesList">
+                        THE DEALER'S TURN
+                    </p>
+                    <p class="rulesList">
+                        When the dealer has served every player, the dealers have to wait for the player's turn has done. The dealer will decide whenever the game stop to check score since they already known the player's score. 
+                    </p> 
+                    <p class="rulesList">
+                        CARD VALUES/SCORING
+                    </p>
+                    <p class="rulesList">
+                        It is up to each individual player if an ace is worth 1 or 11. Face cards are 10 and any other card is its pip value. <br />
+                        Jack - Queen - King = 10pts<br> 
+                        Ace = 1pt or 11pts - player's choice . 
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="main.js"></script>
+    <script defer src="main.js"></script>
 </body>
 
 </html>
