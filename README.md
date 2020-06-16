@@ -50,6 +50,8 @@
   
  ### Cite:
  
+  * https://www.w3schools.com/
+  
   * https://www.pokerstarscasino.com/games/blackjack/
   
   * https://code-boxx.com/javascript-blackjack/
