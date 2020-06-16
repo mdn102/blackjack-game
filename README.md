@@ -1,4 +1,4 @@
-# Blackjack Games: [Click to play!](https://minhd-nguyen.github.io/blackjack-game/)
+## Blackjack Games: [Click to play!](https://minhd-nguyen.github.io/blackjack-game/)
   This is my first project at General Assembly. It is still need to improve code for more features. The rules of Blackjack can be grasped within minutes. However, depending on which variant you are playing, table rules and betting options may differ. There are a variety of Blackjack game types. Since it's my first project, so several options was cut off, I will try to develope next versions on both Single Player and Multi-Player tables with some add-in features in the future.
 
   ### General Game Rules: 
