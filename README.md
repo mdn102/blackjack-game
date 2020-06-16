@@ -46,11 +46,11 @@
     4. Analize the chance of win.
     5. Create the player database such as: personal info, storage score, and upload game online. 
     
-  My code using some reference source below: 
+  My code using some reference sources below: 
   
  ### Cite:
  
-  * https://www.w3schools.com/
+  * https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp
   
   * https://www.pokerstarscasino.com/games/blackjack/
   
