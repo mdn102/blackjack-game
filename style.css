@@ -56,7 +56,7 @@ h1 {
     margin: 20px;
 }
 
-#deckcount {
+#deckCount {
     color: lightgoldenrodyellow;
     font-size: 30pt;
     font-weight: bold;
@@ -114,7 +114,7 @@ h2 {
     background:red;
 }
 
-.points{
+.score{
     display: flex;
     justify-content: center;
     align-items: flex-end;

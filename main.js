@@ -1,25 +1,25 @@
-//  DESCRIPTION CARD FORM
+//  DESCRIPTION CARD 
+const faces = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 const suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
-const values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 
 
 // DESCRIPTION DECK  
 let deck = new Array();
 function getDeck() {
     deck = new Array();
-    for (let i = 0; i < values.length; i++) {
+    for (let i = 0; i < faces.length; i++) {
         for (let j = 0; j < suits.length; j++) {
-            let weight = parseInt(values[i]);
-            if (values[i] == "J" || values[i] == "Q" || values[i] == "K") {
-                weight = 10;
+            let val = parseInt(faces[i]);
+            if (faces[i] == "J" || faces[i] == "Q" || faces[i] == "K") {
+                val = 10;
             }
-            if (values[i] == "A") {
-                weight = 11;
+            if (faces[i] == "A") {
+                val = 11;
             }
             let card = {
-                Value: values[i],
+                Face: faces[i],
                 Suit: suits[j],
-                Weight: weight
+                Value: val
             };
             deck.push(card);
         }
@@ -30,12 +30,11 @@ function getDeck() {
 // DEFINITION PLAYERS 
 let players = new Array();
 function getPlayers(num) {
-    
         players = new Array();
-        for(var i = 1; i <= num; i++)
+        for(let i = 1; i <= num; i++)
         {
-            var hand = new Array();
-            var player = { Name: 'Player ' + i, ID: i, Points: 0, Hand: hand };
+            let hand = new Array();
+            let player = { Name: `Player${i}`, ID: i, Score: 0, Hand: hand };
             players.push(player);
         }
     }
@@ -46,30 +45,34 @@ function getPlayerForm() {
         let nav_player = document.createElement('nav');
         let nav_playerid = document.createElement('nav');
         let nav_hand = document.createElement('nav');
-        let nav_points = document.createElement('nav');
+        let nav_score = document.createElement('nav');
 
-        nav_points.className = 'points';
-        nav_points.id = 'points_' + i;
-        nav_player.id = 'player_' + i;;
+        nav_score.className = 'score';
+        nav_score.id = `score_${i}`;
+        nav_player.id = `player_${i}`;
         nav_player.className = 'player';
-        nav_hand.id = 'hand_' + i;
+        nav_hand.id = `hand_${i}`;
+        if (`Player${players[i].ID}` == 'Player1') {
+            nav_playerid.innerHTML = `Player`;
+        }
+        if (`Player${players[i].ID}` == 'Player2') {
+            nav_playerid.innerHTML = `Dealer`;
+        }
 
-        nav_playerid.innerHTML = 'Player ' + players[i].ID;
         nav_player.appendChild(nav_playerid);
         nav_player.appendChild(nav_hand);
-        nav_player.appendChild(nav_points);
+        nav_player.appendChild(nav_score);
         document.getElementById('players').appendChild(nav_player);
     }
 }
 
 
 //  SHUFFLING CARD DECK  
-function shuffle() {
+function shuffleDeck() {
     for (let i = 0; i < 1000; i++) {
         let x = Math.floor(Math.random() * (deck.length));
         let y = Math.floor(Math.random() * (deck.length));
         let temp = deck[x];
-
         deck[x] = deck[y];
         deck[y] = temp
     }
@@ -83,27 +86,21 @@ function dealtHand() {
             let card = deck.pop();
             players[j].Hand.push(card);
             renderCard(card, j);
-            updatePoints();
+            updateScore();
         }
     }
-    updateDeck();
-    
-}
-
-// COUNT CURRENT CARD OF DECK
-function updateDeck() {
-    document.getElementById('deckcount').innerHTML = deck.length;
+    document.getElementById('deckCount').innerHTML = deck.length;
 }
 
 
 //  RENDER CARD : A CARD IS DEALT TO A APRTICULAR, IT WILLL BE ADDED TO THEIR HAND
 function renderCard(card, player) {
-    let hand = document.getElementById('hand_' + player);
-    hand.appendChild(getCardForm(card));
+    let hand = document.getElementById(`hand_${player}`);
+    hand.appendChild(getCardFace(card));
 }
 
 // CREATE CARD FACE
-function getCardForm(card) {
+function getCardFace(card) {
     let e = document.createElement('div');
     let icon = '';
     if (card.Suit == "Hearts") { 
@@ -120,55 +117,92 @@ function getCardForm(card) {
     };
 
     e.className = 'card';
-    e.innerHTML = card.Value + '<br/> ' + icon;
+    e.innerHTML = card.Face + '<br/> ' + icon;
     return e;
 }
 
 
 //  GET POINTS
-function getPoints(player) {
-    let points = 0;
+function getScore(player) {
+    let score = 0;
+    let aces  = 0;
     for (let i = 0; i < players[player].Hand.length; i++) {
-        points += players[player].Hand[i].Weight;
+        score += players[player].Hand[i].Value;
+        if (players[player].Hand[i].Value === 11) {
+            aces ++;
+        }
     }
-    players[player].Points = points;
-    return points;
+    while (aces && score > 21) {
+        score -= 10;
+        aces--;
+    }
+    players[player].Score = score;
+    return score;
 }
 
 // COUNT POINT OF CURRENT PLAYER
-function updatePoints() {
+function updateScore() {
     for (var i = 0 ; i < players.length; i++) {
-        getPoints(i);
-        document.getElementById('points_' + i).innerHTML = players[i].Points;
+        getScore(i);
+        document.getElementById(`score_${i}`).innerHTML = players[i].Score;
     }
+     
 }
 
 
 //  CHECK WIN / LOOSE / TIE
 let currentPlayer = 0;
-function checkLoose() {
-    if (players[currentPlayer].Points > 21) {
-        document.getElementById('status').innerHTML = `Wanna try again, Player${players[currentPlayer].ID}?`;
-        document.getElementById('status').style.display = "flex";
-        checkWin();
+function checkScore() {
+    // check Blackjack 
+    if (players[currentPlayer].Score === 21) {
+        // for (var i = 0 ; i < players.length; i++) { 
+            if (`Player${players[currentPlayer].ID}` == 'Player1') {
+                document.getElementById('status').innerHTML = `Player Blackjack.`;
+            }
+            if (`Player${players[currentPlayer].ID}` == 'Player2') {
+                document.getElementById('status').innerHTML = `Dealer Blackjack.`;
+            }
+        // }
+        document.getElementById('status').style.display = "flex";   
     }
+
+    // check Loose
+    if (players[currentPlayer].Score > 21) { 
+        // for (var i = 0 ; i < players.length; i++) {
+            if (`Player${players[currentPlayer].ID}` == 'Player1') {
+                document.getElementById('status').innerHTML = `Busted, Player Lost.`;
+            }
+            if (`Player${players[currentPlayer].ID}` == 'Player2') {
+                document.getElementById('status').innerHTML = `Busted, Dealer Lost.`;
+            }
+        // }
+        document.getElementById('status').style.display = "flex";    
+        checkResult();
+    }
+    
 }
 
-function checkWin() {
-    let winner = -1;
-    let score = 0
+function checkResult() {
+    let point = 0;  
     for(var i = 0; i < players.length; i++) {
-        if (players[i].Points > score && players[i].Points < 22) {
-            winner = i;
-            document.getElementById('status').innerHTML = `Double Down, Player${players[winner].ID}?`;
+        // check Win();
+        if ((players[currentPlayer].Score < 21) && (players[i].Score > point)) {
+            if (`Player${players[currentPlayer].ID}` == 'Player1') {
+                document.getElementById('status').innerHTML = `Player Win.`;
+            }
+            if (`Player${players[currentPlayer].ID}` == 'Player2') {
+                document.getElementById('status').innerHTML = `Dealer Win.`;
+            }
+            document.getElementById("status").style.display = "flex";
         } 
         // check Tie
-        else if (players[i].Points == score && players[i].Points < 22) {
+        else if ((players[currentPlayer].Score < 21) && (players[i].Score == point)) {
             document.getElementById('status').innerHTML = `TIE. Restart Game.`;
+            document.getElementById("status").style.display = "flex";
         }
-        score = players[i].Points;
+        point = players[i].Score;
+        
     }
-    document.getElementById("status").style.display = "flex";
 }
 
 
@@ -179,9 +213,9 @@ function hit() {
     let card = deck.pop();
     players[currentPlayer].Hand.push(card);
     renderCard(card, currentPlayer);
-    updatePoints();
-    updateDeck();
-    checkLoose();
+    updateScore();
+    document.getElementById('deckCount').innerHTML = deck.length;
+    checkScore();
 }
 
 
@@ -190,13 +224,16 @@ function hit() {
 function stand() {
     if (currentPlayer != players.length-1) {
         document.getElementById('player_' + currentPlayer).classList.remove('active');
-        currentPlayer += 1;
+        currentPlayer ++;
         document.getElementById('player_' + currentPlayer).classList.add('active');
-    }
+        checkScore();
+    } 
     else {
-        checkWin();
+        checkResult();
     }
+    
 }
+
 
 //  START GAME
 function startGame() {
@@ -204,34 +241,35 @@ function startGame() {
     document.getElementById("status").style.display="none";
     currentPlayer = 0;
     getDeck();
-    shuffle();
+    shuffleDeck();
     getPlayers(2);
     getPlayerForm();
     dealtHand();
+    checkScore();
     document.getElementById('player_' + currentPlayer).classList.add('active');
 }
 
 //  ACTIVE EVENT 
 
 let startBtn = document.getElementById("start");
-startBtn.onclick = function() {
+startBtn.onclick = function(e) {
     startGame();
 };
 
 let hitBtn = document.getElementById("hit");
-hitBtn.onclick = function() {
+hitBtn.onclick = function(e) {
     hit();
 };
 
 let standBtn = document.getElementById("stand");
-standBtn.onclick = function() {
+standBtn.onclick = function(e) {
     stand();
 };
 
-window.addEventListener('load', function(){
+window.addEventListener('load', function(e){
     getDeck();
-    shuffle();
-    getPlayers(1);
+    shuffleDeck();
+    getPlayers(2);
 });
 
 //  DISPLAY THE RULE 
@@ -239,11 +277,11 @@ let rulesBtn = document.getElementById("rulesBtn");
 let rulesList = document.getElementById("rulesList");
 let span = document.getElementsByClassName("close")[0];
 
-rulesBtn.onclick = function() {
+rulesBtn.onclick = function(e) {
   rulesList.style.display = "block";
 }
 
-span.onclick = function() {
+span.onclick = function(e) {
     rulesList.style.display = "none";
 }
 
