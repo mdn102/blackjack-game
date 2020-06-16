@@ -1,5 +1,5 @@
 # Blackjack Games: 
-  This is my first project at General Assembly. It is still need to improving code for more features. The rules of Blackjack can be grasped within minutes. However, depending on which variant you are playing, table rules and betting options may differ. There are a variety of Blackjack game types, since I have only one 1 week to finish my first project , so I cut off several options, will try to improve next versions on both Single Player and Multi-Player tables with some add-in features in the future.
+  This is my first project at General Assembly. It is still need to improving code for more features. The rules of Blackjack can be grasped within minutes. However, depending on which variant you are playing, table rules and betting options may differ. There are a variety of Blackjack game types, since it's my first project, so several options was cut off, will try to improve next versions on both Single Player and Multi-Player tables with some add-in features in the future.
 
   ### General Game Rules: 
   I changed the rule of game a quitely different with the orginal rule of Balackjack. It's fun and relax game for one player under 2 roles Player & Dealer. 
@@ -12,12 +12,13 @@
     * Stand: When the total value of player’s hand is 21 or lower, and can choose to stand and not to risk the chance of thier hand(s exceeding 21 in total value.
     
   ### Screenshot: 
-   * Begin of game: https://imgur.com/s6HHkkt
-   * Click Start : https://imgur.com/qQF4JH1
-   * Playing Game: https://imgur.com/I2FYcSK
-   * View rule: https://imgur.com/bLOt9dh
+   ![Begin of game] (https://imgur.com/s6HHkkt)
+   ![Click Start] (https://imgur.com/qQF4JH1)
+   ![Playing Game] (https://imgur.com/I2FYcSK)
+   ![View rule] (https://imgur.com/bLOt9dh)
    
   ### Technology: 
+  
    * HTML
    * CSS
    * JS/DOM 
