@@ -39,7 +39,7 @@
     
     * Rule button for review the rule of game. Can be close by click any location in window of close symbol ([X]) .
     
-  ### Icebox Feature: 
+  ### Ice-bucket: 
     1. Refactoring code DRY.
     2. Adding more players, also human play with computer. 
     3. Implement rule and level.
