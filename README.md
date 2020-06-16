@@ -42,9 +42,9 @@
   ### Ice-bucket: 
     1. Refactoring code DRY.
     2. Adding more players, also human play with computer. 
-    3. Implement rule and level.
-    4. Analize the chance of win.
-    5. Create the player database such as: personal info, storage score, and upload game online. 
+    3. Addin more rule and level.
+    4. Analyze the chance of win.
+    5. Create the player database such as: personal info, storage score, and upgrade game able to play online. 
     
   My code using some reference sources below: 
   
