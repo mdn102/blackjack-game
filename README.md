@@ -1,4 +1,4 @@
-# Blackjack Games: [Click to play!] (
+# Blackjack Games: [Click to play!](https://nguyendm77.github.io/blackjack-game/)
   This is my first project at General Assembly. It is still need to improving code for more features. The rules of Blackjack can be grasped within minutes. However, depending on which variant you are playing, table rules and betting options may differ. There are a variety of Blackjack game types, since it's my first project, so several options was cut off, will try to improve next versions on both Single Player and Multi-Player tables with some add-in features in the future.
 
   ### General Game Rules: 
@@ -46,9 +46,9 @@
     4. Analize the chance of win.
     5. Create the player database such as: personal info, storage score, and upload game online. 
     
- ### My code using some reference source below: 
- 
- Cite:
+  My code using some reference source below: 
+  
+ ### Cite:
  
   * https://www.pokerstarscasino.com/games/blackjack/
   
