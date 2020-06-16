@@ -40,13 +40,16 @@
     * Rule button for review the rule of game. Can be close by click any location in window of close symbol ([X]) .
     
   ### Ice-bucket: 
+  
     1. Refactoring code DRY.
-    2. Adding more players, also human play with computer. 
-    3. Addin more rule and level.
-    4. Analyze the chance of win.
-    5. Create the player database such as: personal info, storage score, and upgrade game able to play online. 
-    
-  My code using some reference sources below: 
+    2. Add-in more players, also human play with computer. 
+    3. Add-in more rule and upgrade level.
+    4. Implement game able to play in multi mode: latop, mobile, tablet.
+    5. Create the player database such as: personal info, storage score.
+    6. Upgrade game able to play online.  
+    7. Analyze the chance of win.
+       
+My code using some reference sources below: 
   
  ### Cite:
  
