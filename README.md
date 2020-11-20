@@ -12,10 +12,7 @@
     * Stand: When the total value of player’s hand is 21 or lower, and can choose to stand and not to risk the chance of thier hand(s exceeding 21 in total value.
     
   ### Screenshot: 
-   ![Begin of game](https://i.imgur.com/s6HHkkt.png)
-   ![Click Start](https://i.imgur.com/qQF4JH1.png)
    ![Playing Game](https://i.imgur.com/I2FYcSK.png)
-   ![View rule](https://i.imgur.com/bLOt9dh.png)
    
   ### Technology: 
   
